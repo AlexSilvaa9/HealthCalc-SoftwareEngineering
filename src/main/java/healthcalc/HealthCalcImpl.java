@@ -23,7 +23,8 @@ public class HealthCalcImpl implements HealthCalc {
     }
     public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
-        
+        gender=Character.toUpperCase(gender);
+
         if(weight < 0){
             throw new RuntimeException("peso negativo");
         }
@@ -37,13 +38,16 @@ public class HealthCalcImpl implements HealthCalc {
             throw new RuntimeException("Genero incorrecto");
         }
         double BMR;
-        gender=Character.toUpperCase(gender);
         if(gender=='M'){
             BMR = 10 * weight + 6.25 * height - 5 * age + 5;
         }else{
             BMR = 10 * weight + 6.25 * height - 5 * age - 161;
         }
-        return (float)BMR;
+        float fBMR=(float)BMR;
+        if(Float.isInfinite(fBMR)){
+            throw new ArithmeticException("Se ha desbordado");
+        }
+        return fBMR;
     
 	 
     }

@@ -1,7 +1,6 @@
 package healthcalc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +11,7 @@ public class HealthCalcTest {
 	private HealthCalcImpl calc= new HealthCalcImpl();
 
 	@Test
-	@DisplayName("Altura negativo en Ideal Weight")
+	@DisplayName("Altura negativa en Ideal Weight")
 	public void alturaNegIW() {
 		
 		assertThrows(RuntimeException.class, () -> calc.idealWeight(-10, 'm'));
@@ -54,54 +53,56 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Peso negativo en basalMetabolicRate")
 	public void pnegBMR() {
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(-60, 170, 'm', 20));
 	}
 	@Test
 	@DisplayName("altura negativa en basalMetabolicRate")
 	public void altNegBMR() {
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, -170, 'm', 20));
+
 	}
 	@Test
 	@DisplayName("edad negativa en basalMetabolicRate")
 	public void edadNegBMR() {
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, 170, 'm', -20));
 	}
-
-
 	@Test
 	@DisplayName("Genero ni 'm', ni 'f' en basalMetabolicRate")
 	public void generomalBMR() {
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, 170, 'z', 20));
+
 	}
 	@Test
 	@DisplayName("Genero mayusculas en basalMetabolicRate")
-	public void generoMayBMR() {
-		assertEquals(true, true);
+	public void generoMayBMR() throws Exception{
+		assertEquals(1567.5, calc.basalMetabolicRate(60, 170, 'm', 20));
 	}
 	@Test
 	@DisplayName("Peso 60, altura 170, edad 20 en basalMetabolicRate(valores bajos)")
-	public void peso60Altura170Edad20BMR() {
-		assertEquals(true, true);
+	public void peso60Altura170Edad20BMR() throws Exception{
+		assertEquals(1567.5, calc.basalMetabolicRate(60, 170, 'm', 20));
+
 	}
 	@Test
 	@DisplayName("Peso 150, altura 200, edad 90 en basalMetabolicRate(valores altos)")
-	public void peso150Altura200Edad90BMR() {
-		assertEquals(true, true);
+	public void peso150Altura200Edad90BMR() throws Exception{
+		assertEquals(2305.0, calc.basalMetabolicRate(150, 200, 'm', 90));
+
 	}
 	@Test
 	@DisplayName("Desbordamiento en basalMetabolicRate")
 	public void desbordBMR() {
-		assertEquals(true, true);
+		assertThrows(ArithmeticException.class,() -> calc.basalMetabolicRate(Float.MAX_VALUE, Integer.MAX_VALUE, 'm', 10));
 	}
 	@Test
 	@DisplayName("genero 'm' en basalMetabolicRate")
-	public void generoBMR() {
-		assertEquals(true, true);
+	public void generoBMR() throws Exception{
+		assertEquals(2305.0, calc.basalMetabolicRate(150, 200, 'm', 90));
 	}
 	@Test
 	@DisplayName("genero 'f' en basalMetabolicRate")
-	public void generoFBMR() {
-		assertEquals(true, true);
+	public void generoFBMR() throws Exception{
+		assertEquals(2139.0, calc.basalMetabolicRate(150, 200, 'f', 90));
 	}
 }
 
