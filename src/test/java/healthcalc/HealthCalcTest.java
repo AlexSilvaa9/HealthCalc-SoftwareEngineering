@@ -12,8 +12,8 @@ public class HealthCalcTest {
 	private HealthCalcImpl calc= new HealthCalcImpl();
 
 	@Test
-	@DisplayName("Peso negativo en Ideal Weight")
-	public void pnegIW() {
+	@DisplayName("Altura negativo en Ideal Weight")
+	public void alturaNegIW() {
 		
 		assertThrows(RuntimeException.class, () -> calc.idealWeight(-10, 'm'));
 	}
@@ -42,7 +42,7 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("genero 'm' en Ideal Weight")
 	public void generoMIW() throws Exception{
-		assertEquals(60, calc.idealWeight(190, 'm'));
+		assertEquals(80, calc.idealWeight(190, 'm'));
 	}
 	@Test
 	@DisplayName("genero 'f' en Ideal Weight")

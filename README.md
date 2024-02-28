@@ -7,7 +7,7 @@ Health calculator
 ### Metodo idealWeight
 
 #### Pruebas de particion 
-- Peso negativo
+- Altura negativa
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
 - Altura 160 (valor bajo)
