@@ -1,6 +1,7 @@
 package healthcalc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -24,33 +25,30 @@ public class HealthCalcTest {
 	}
 	@Test
 	@DisplayName("Genero mayusculas en Ideal Weight")
+	// no deberia importar si el genero esta en mayusculas o minusculas
 	public void generoMayIW() throws Exception {
 		assertEquals(58, calc.idealWeight(160, 'M'));
 	}
 	@Test
-	@DisplayName("Peso 60 en Ideal Weight (valor bajo)")
-	public void peso60IW() {
-		assertEquals(true, true);
+	@DisplayName("Altura 160 en Ideal Weight (valor bajo)")
+	public void altura160IW() throws Exception {
+		assertEquals(58, calc.idealWeight(160, 'M'));
 	}
 	@Test
-	@DisplayName("Peso 90 en Ideal Weight (valor alto)")
-	public void peso90IW() {
-		assertEquals(true, true);
-	}
-	@Test
-	@DisplayName("Desbordamiento en Ideal Weight")
-	public void desbordIW() {
-		assertEquals(true, true);
+	@DisplayName("Altura 190 en Ideal Weight (valor alto)")
+	public void altura190IW() throws Exception{
+		assertEquals(80, calc.idealWeight(190, 'M'));
 	}
 	@Test
 	@DisplayName("genero 'm' en Ideal Weight")
-	public void generoMIW() {
-		assertEquals(true, true);
+	public void generoMIW() throws Exception{
+		assertEquals(60, calc.idealWeight(190, 'm'));
 	}
 	@Test
 	@DisplayName("genero 'f' en Ideal Weight")
-	public void generoFIW() {
-		assertEquals(true, true);
+	public void generoFIW() throws Exception{
+		assertEquals(74, calc.idealWeight(190, 'f'));
+
 	}
 
 	@Test

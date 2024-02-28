@@ -10,9 +10,9 @@ Health calculator
 - Peso negativo
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
-- Peso 60 (valor bajo)
-- Peso 90 (valor alto)
-- Prueba de desbordamiento 
+- Altura 160 (valor bajo)
+- Altura 190 (valor alto)
+- Prueba de desbordamiento no necesaria ya que no ocurre nunca 
 #### Pruebas de caminos base
 Tenemos dos caminos, hombre y mujer.
 - Genero 'm'
