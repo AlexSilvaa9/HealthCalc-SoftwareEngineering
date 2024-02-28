@@ -1,8 +1,8 @@
 package healthcalc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,17 +14,18 @@ public class HealthCalcTest {
 	@DisplayName("Peso negativo en Ideal Weight")
 	public void pnegIW() {
 		
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.idealWeight(-10, 'm'));
 	}
 	@Test
 	@DisplayName("Genero ni 'm', ni 'f' en Ideal Weight")
 	public void generomalIW() {
-		assertEquals(true, true);
+		assertThrows(RuntimeException.class, () -> calc.idealWeight(10, 'z'));
+
 	}
 	@Test
 	@DisplayName("Genero mayusculas en Ideal Weight")
-	public void generoMayIW() {
-		assertEquals(true, true);
+	public void generoMayIW() throws Exception {
+		assertEquals(58, calc.idealWeight(160, 'M'));
 	}
 	@Test
 	@DisplayName("Peso 60 en Ideal Weight (valor bajo)")

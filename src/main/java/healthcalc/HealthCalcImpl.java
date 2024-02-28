@@ -9,7 +9,7 @@ public class HealthCalcImpl implements HealthCalc {
         }
         gender=Character.toUpperCase(gender);
         double IW;
-        if(gender!='M' || gender!='F'){
+        if(!(gender=='M' || gender=='F')){
             throw new RuntimeException("Genero incorrecto");
         }else if(gender=='M'){
             IW = height - 100 - (height - 150) / 4;
@@ -33,7 +33,7 @@ public class HealthCalcImpl implements HealthCalc {
         if(Integer.signum(age)=='-'){
             throw new RuntimeException("edad negativa");
         }
-        if(gender!='M' || gender!='F'){
+        if(!(gender=='M' || gender=='F')){
             throw new RuntimeException("Genero incorrecto");
         }
         double BMR;
