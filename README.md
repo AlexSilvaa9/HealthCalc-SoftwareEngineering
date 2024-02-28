@@ -10,7 +10,8 @@ Health calculator
 - Peso negativo
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
-- Peso 60
+- Peso 60 (valor bajo)
+- Peso 90 (valor alto)
 - Prueba de desbordamiento 
 #### Pruebas de caminos base
 Tenemos dos caminos, hombre y mujer.
@@ -25,7 +26,8 @@ Tenemos dos caminos, hombre y mujer.
 - Edad negativa
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
-- Peso 60
+- Peso 60, altura 170, edad 20 en basalMetabolicRate(valores bajos)
+- Peso 150, altura 200, edad 90 en basalMetabolicRate(valores altos)
 - Prueba de desbordamiento
 #### Pruebas de caminos base
 Tenemos dos caminos, hombre y mujer.
