@@ -23,7 +23,7 @@ public class HealthCalcImpl implements HealthCalc {
     }
     public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
-
+        
         if(Float.toString(weight).valueOf(0).equals("-")){
             throw new RuntimeException("peso negativo");
         }
