@@ -43,6 +43,7 @@ public class HealthCalcImpl implements HealthCalc {
         }else{
             BMR = 10 * weight + 6.25 * height - 5 * age - 161;
         }
+        // cuando se desborda pasa a ser infinito
         float fBMR=(float)BMR;
         if(Float.isInfinite(fBMR)){
             throw new ArithmeticException("Se ha desbordado");

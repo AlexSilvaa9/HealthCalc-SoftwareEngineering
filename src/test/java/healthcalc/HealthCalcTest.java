@@ -75,7 +75,7 @@ public class HealthCalcTest {
 	@Test
 	@DisplayName("Genero mayusculas en basalMetabolicRate")
 	public void generoMayBMR() throws Exception{
-		assertEquals(1567.5, calc.basalMetabolicRate(60, 170, 'm', 20));
+		assertEquals(1567.5, calc.basalMetabolicRate(60, 170, 'M', 20));
 	}
 	@Test
 	@DisplayName("Peso 60, altura 170, edad 20 en basalMetabolicRate(valores bajos)")
