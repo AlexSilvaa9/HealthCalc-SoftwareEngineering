@@ -17,6 +17,12 @@ public class HealthCalcTest {
 		assertThrows(RuntimeException.class, () -> calc.idealWeight(-10, 'm'));
 	}
 	@Test
+	@DisplayName("Altura cero en Ideal Weight")
+	public void alturaCeroIW() {
+		
+		assertThrows(RuntimeException.class, () -> calc.idealWeight(0, 'm'));
+	}
+	@Test
 	@DisplayName("Genero ni 'm', ni 'f' en Ideal Weight")
 	public void generomalIW() {
 		assertThrows(RuntimeException.class, () -> calc.idealWeight(10, 'z'));
@@ -56,15 +62,31 @@ public class HealthCalcTest {
 		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(-60, 170, 'm', 20));
 	}
 	@Test
+	@DisplayName("Peso cero en basalMetabolicRate")
+	public void pCeroBMR() {
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(0, 170, 'm', 20));
+	}
+	@Test
 	@DisplayName("altura negativa en basalMetabolicRate")
 	public void altNegBMR() {
 		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, -170, 'm', 20));
 
 	}
 	@Test
+	@DisplayName("altura cero en basalMetabolicRate")
+	public void altCeroBMR() {
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, 0, 'm', 20));
+
+	}
+	@Test
 	@DisplayName("edad negativa en basalMetabolicRate")
 	public void edadNegBMR() {
 		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, 170, 'm', -20));
+	}
+	@Test
+	@DisplayName("edad cero en basalMetabolicRate")
+	public void edadCeroBMR() {
+		assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(60, 170, 'm', 0));
 	}
 	@Test
 	@DisplayName("Genero ni 'm', ni 'f' en basalMetabolicRate")

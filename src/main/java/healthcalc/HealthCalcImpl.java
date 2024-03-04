@@ -4,8 +4,8 @@ public class HealthCalcImpl implements HealthCalc {
 
     public float idealWeight(int height, char gender) throws Exception{
     //  * Calculate the ideal weight (IW) of a person following the Lorentz formula:
-        if(height<0){
-            throw new RuntimeException("altura negativa");
+        if(height<=0){
+            throw new RuntimeException("altura menor o igual que cero");
         }
         gender=Character.toUpperCase(gender);
         double IW;
@@ -25,14 +25,14 @@ public class HealthCalcImpl implements HealthCalc {
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
         gender=Character.toUpperCase(gender);
 
-        if(weight < 0){
-            throw new RuntimeException("peso negativo");
+        if(weight <= 0){
+            throw new RuntimeException("peso menor o igual que cero");
         }
-        if(height < 0){
-            throw new RuntimeException("altura negativa");
+        if(height <=0){
+            throw new RuntimeException("altura menor o igual que cero");
         }
-        if(age < 0){
-            throw new RuntimeException("edad negativa");
+        if(age <= 0){
+            throw new RuntimeException("edad menor o igual que cero");
         }
         if(!(gender=='M' || gender=='F')){
             throw new RuntimeException("Genero incorrecto");

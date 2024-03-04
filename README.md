@@ -7,7 +7,9 @@ Health calculator
 ### Metodo idealWeight
 
 #### Pruebas de particion (se compureba todos los tipos de entrada y salida posibles)
-- Altura negativa
+- Altura menor
+- Altura cero
+- Podriamos comprobar una altura minima pero no esta implementado
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
 - Altura 160 (valor bajo)
@@ -25,8 +27,12 @@ Tenemos dos caminos, hombre y mujer.
 
 #### Pruebas de particion (se compureba todos los tipos de entrada y salida posibles)
 - Peso negativo
+- Peso cero
 - Altura negativa
+- Altura cero
 - Edad negativa
+- Edad cero
+- Se podrian comprobar peso altura minimas
 - Genero ni 'm' ni 'f'
 - Genero en mayusculas
 - Peso 60, altura 170, edad 20 en basalMetabolicRate(valores bajos)
