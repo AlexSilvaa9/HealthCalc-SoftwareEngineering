@@ -1,6 +1,16 @@
 # isa2024-healtcalc
 Health calculator
 ***
+# Practica 2
+
+## Imagen del diagrama de casos de uso
+
+![imagen no cargan la puedes encontrar en el repositorio](doc/imagen-casos-de-uso.drawio.png)
+
+## Especificacion de casos de uso
+### Calculate IMB
+***
+# Practica 1
 # Pruebas unitarias
 ## Clase HealthCalImp
 ---
