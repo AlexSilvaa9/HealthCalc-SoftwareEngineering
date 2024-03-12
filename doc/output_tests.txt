@@ -25,7 +25,7 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running healthcalc.HealthCalcTest
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in healthcalc.HealthCalcTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in healthcalc.HealthCalcTest
 [INFO] Running cucumber.RunCucumberTest
 
 @tag @tag1
@@ -97,7 +97,7 @@ Scenario: calculate metabolic basal rate with incorrect parameters        # reso
   When I introduce my gender 'z', heigth 1, weight 1 or age 1 incorrectly # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age_incorrectly(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
   And I click on "send" Button                                            # cucumber.CucumberTest.i_click_on_button(java.lang.String)
   Then The system raises an exception                                     # cucumber.CucumberTest.the_system_raises_an_exception()
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in cucumber.RunCucumberTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.100 s -- in cucumber.RunCucumberTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -106,6 +106,6 @@ Scenario: calculate metabolic basal rate with incorrect parameters        # reso
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.016 s
-[INFO] Finished at: 2024-03-12T23:40:12+01:00
+[INFO] Total time:  1.071 s
+[INFO] Finished at: 2024-03-12T23:55:55+01:00
 [INFO] ------------------------------------------------------------------------

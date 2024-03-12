@@ -1,6 +1,51 @@
 # isa2024-healtcalc
 Health calculator
 ***
+# Practica 3
+### Historias de usuario
+#### Ideal weight calculation
+
+As a user
+I want to calcule my ideal weight 
+So that I can set goals to improve my physical health 
+
+##### Aceptance criteria
+
+    Scenario: calculate ideal weight with correct parameters
+    Given I click on "calculate ideal weight" Button
+    When I introduce my gender and heigth
+    And I click on "send" Button
+    Then I should see my ideal wheight
+
+    Scenario: calculate ideal weight with incorrect parameters
+    Given I click on "calculate ideal weight" Button
+    When I introduce my gender or heigth incorrectly
+    And I click on "send" Button
+    Then The system raises an exception
+
+#### Metabolic basal rate calculation
+
+    As a user
+    I want to calcule my metabolic basal rate 
+    So that I can make a diet and control my caloric intake
+
+##### Aceptance criteria
+
+
+    Scenario: calculate metabolic basal rate with correct parameters
+    Given I click on "calculate metabolic basal rate" Button
+    When I introduce my gender, heigth, weight and age
+    And I click on "send" Button
+    Then I should see my metabolic basal rate
+
+    Scenario: calculate metabolic basal rate with incorrect parameters
+    Given I click on "calculate metabolic basal rate" Button
+    When I introduce my gender, heigth, weight or age incorrectly
+    And I click on "send" Button
+    Then The system raises an exception
+
+***
+# Practica 1
 # Pruebas unitarias
 ## Clase HealthCalImp
 ---
