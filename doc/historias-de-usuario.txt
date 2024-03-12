@@ -1,0 +1,39 @@
+1) Ideal weight calculation
+
+As a user
+I want to calcule my ideal weight 
+So that I can set goals to improve my physical health 
+
+Aceptance criteria
+
+Scenario 1
+Given I click on "calculate ideal weight" Button
+When I introduce my gender and heigth
+And I click on "send" Button
+Then I should see my ideal wheight
+
+Scenario 2
+Given I click on "calculate ideal weight" Button
+When I introduce my gender or heigth incorrectly
+And I click on "send" Button
+Then I should see an error
+
+2) Metabolic basal rate calculation
+
+As a user
+I want to calcule my metabolic basal rate 
+So that I can make a diet and control my caloric intake
+
+Aceptance criteria
+
+Scenario 1
+Given I click on "calculate metabolic basal rate" Button
+When I introduce my gender, heigth, weight and age
+And I click on "send" Button
+Then I should see my metabolic basal rate
+
+Scenario 2
+Given I click on "calculate metabolic basal rate" Button
+When I introduce my gender, heigth, weight or age incorrectly
+And I click on "send" Button
+Then I should see an error
