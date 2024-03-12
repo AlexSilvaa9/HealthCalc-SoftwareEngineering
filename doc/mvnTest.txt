@@ -1,0 +1,111 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< uma.isa:HealthCalc >-------------------------
+[INFO] Building HealthCalc 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ HealthCalc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/alex/Documents/UNI/Tercero/Segundo-cuatri/software/Practica1/isa2024-healthcalc/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ HealthCalc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ HealthCalc ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/alex/Documents/UNI/Tercero/Segundo-cuatri/software/Practica1/isa2024-healthcalc/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ HealthCalc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.2.5:test (default-test) @ HealthCalc ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running healthcalc.HealthCalcTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in healthcalc.HealthCalcTest
+[INFO] Running cucumber.RunCucumberTest
+
+@tag @tag1
+Scenario Outline: Calculate ideal weight with correct parameters # resources/IdealWeight.feature:14
+  Given I click on "calculate ideal weight" Button               # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm' and heigth 190                  # cucumber.CucumberTest.i_introduce_my_gender_and_heigth(java.lang.String,java.lang.Integer)
+  And I click on "send" Button                                   # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then I should see my ideal wheight 80                          # cucumber.CucumberTest.i_should_see_my_ideal_wheight(float)
+
+@tag @tag1
+Scenario Outline: Calculate ideal weight with correct parameters # resources/IdealWeight.feature:15
+  Given I click on "calculate ideal weight" Button               # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'f' and heigth 190                  # cucumber.CucumberTest.i_introduce_my_gender_and_heigth(java.lang.String,java.lang.Integer)
+  And I click on "send" Button                                   # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then I should see my ideal wheight 74                          # cucumber.CucumberTest.i_should_see_my_ideal_wheight(float)
+
+@tag @tag2
+Scenario Outline: calculate ideal weight with incorrect parameters # resources/IdealWeight.feature:26
+  Given I click on "calculate ideal weight" Button                 # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm' or heigth -1 incorrectly          # cucumber.CucumberTest.i_introduce_my_gender_or_heigth_incorrectly(java.lang.String,java.lang.Integer)
+  And I click on "send" Button                                     # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                              # cucumber.CucumberTest.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario Outline: calculate ideal weight with incorrect parameters # resources/IdealWeight.feature:27
+  Given I click on "calculate ideal weight" Button                 # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'z' or heigth 140 incorrectly         # cucumber.CucumberTest.i_introduce_my_gender_or_heigth_incorrectly(java.lang.String,java.lang.Integer)
+  And I click on "send" Button                                     # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                              # cucumber.CucumberTest.the_system_raises_an_exception()
+
+@tag @tag1
+Scenario Outline: calculate metabolic basal rate with correct parameters # resources/Imb.feature:13
+  Given I click on "calculate metabolic basal rate" Button               # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm', heigth 200, weight 150 or age 90       # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                           # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system returns 2305.0                                         # cucumber.CucumberTest.the_system_returns(java.lang.Double)
+
+@tag @tag1
+Scenario Outline: calculate metabolic basal rate with correct parameters # resources/Imb.feature:14
+  Given I click on "calculate metabolic basal rate" Button               # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'f', heigth 200, weight 150 or age 90       # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                           # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system returns 2139.0                                         # cucumber.CucumberTest.the_system_returns(java.lang.Double)
+
+@tag @tag2
+Scenario: calculate metabolic basal rate with incorrect parameters         # resources/Imb.feature:26
+  Given I click on "calculate metabolic basal rate" Button                 # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm', heigth 1, weight -1 or age 1 incorrectly # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age_incorrectly(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                             # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                                      # cucumber.CucumberTest.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario: calculate metabolic basal rate with incorrect parameters         # resources/Imb.feature:27
+  Given I click on "calculate metabolic basal rate" Button                 # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm', heigth 1, weight 1 or age -1 incorrectly # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age_incorrectly(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                             # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                                      # cucumber.CucumberTest.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario: calculate metabolic basal rate with incorrect parameters         # resources/Imb.feature:28
+  Given I click on "calculate metabolic basal rate" Button                 # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'm', heigth -1, weight 1 or age 1 incorrectly # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age_incorrectly(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                             # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                                      # cucumber.CucumberTest.the_system_raises_an_exception()
+
+@tag @tag2
+Scenario: calculate metabolic basal rate with incorrect parameters        # resources/Imb.feature:29
+  Given I click on "calculate metabolic basal rate" Button                # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  When I introduce my gender 'z', heigth 1, weight 1 or age 1 incorrectly # cucumber.CucumberTest.i_introduce_my_gender_heigth_weight_or_age_incorrectly(java.lang.String,java.lang.Integer,java.lang.Integer,java.lang.Integer)
+  And I click on "send" Button                                            # cucumber.CucumberTest.i_click_on_button(java.lang.String)
+  Then The system raises an exception                                     # cucumber.CucumberTest.the_system_raises_an_exception()
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in cucumber.RunCucumberTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.016 s
+[INFO] Finished at: 2024-03-12T23:40:12+01:00
+[INFO] ------------------------------------------------------------------------

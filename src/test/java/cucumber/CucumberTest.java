@@ -30,10 +30,10 @@ public void the_system_raises_an_exception() {
 }
 
 @When("I introduce my gender {string} and heigth {int}")
-public void i_introduce_my_gender_and_heigth(char string, Integer int1) {
+public void i_introduce_my_gender_and_heigth(String string, Integer int1) {
     // Write code here that turns the phrase above into concrete actions
     height=int1;
-    gender=string;
+    gender=string.charAt(0);
 }
 
 @Then("I should see my ideal wheight {int}")
@@ -43,16 +43,16 @@ public void i_should_see_my_ideal_wheight(float int1) throws Exception {
 }
 
 @When("I introduce my gender {string} or heigth {int} incorrectly")
-public void i_introduce_my_gender_or_heigth_incorrectly(char string, Integer int1) {
+public void i_introduce_my_gender_or_heigth_incorrectly(String string, Integer int1) {
     height=int1;
-    gender=string;
+    gender=string.charAt(0);
 }
 
 @When("I introduce my gender {string}, heigth {int}, weight {int} or age {int}")
-public void i_introduce_my_gender_heigth_weight_or_age(char string, Integer int1, Integer int2, Integer int3) {
+public void i_introduce_my_gender_heigth_weight_or_age(String string, Integer int1, Integer int2, Integer int3) {
     weight=int2;
     height=int1;
-    gender=string;
+    gender=string.charAt(0);
     age=int3;
 }
 
@@ -63,10 +63,10 @@ public void the_system_returns(Double double1) throws Exception {
 }
 
 @When("I introduce my gender {string}, heigth {int}, weight {int} or age {int} incorrectly")
-public void i_introduce_my_gender_heigth_weight_or_age_incorrectly(char string, Integer int1, Integer int2, Integer int3) {
+public void i_introduce_my_gender_heigth_weight_or_age_incorrectly(String string, Integer int1, Integer int2, Integer int3) {
     weight=int2;
     height=int1;
-    gender=string;
+    gender=string.charAt(0);
     age=int3;
 }
 }
