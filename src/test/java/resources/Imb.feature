@@ -4,10 +4,9 @@ Feature: Metabolic basal rate calculation
 
     @tag1
         Scenario Outline: calculate metabolic basal rate with correct parameters
-        Given I click on "calculate metabolic basal rate" Button
-        When I introduce my gender <g>, heigth <h>, weight <w> or age <age> 
-        And I click on "send" Button
-        Then The system returns <value>
+        Given my gender <g>, heigth <h>, weight <w> and age <age> 
+        When I calcule my imb
+        Then I should see my imb <value>
         Examples:
         | w |age |  h | g |value |
         |150|  90| 200|'m'|2305.0|
@@ -16,9 +15,8 @@ Feature: Metabolic basal rate calculation
 
     @tag2
         Scenario: calculate metabolic basal rate with incorrect parameters
-        Given I click on "calculate metabolic basal rate" Button
-        When I introduce my gender <g>, heigth <h>, weight <w> or age <age> incorrectly
-        And I click on "send" Button
+        Given my gender <g>, heigth <h>, weight <w> or age <age> incorrectly
+        When I calcule my imb
         Then The system raises an exception
 
         Examples:

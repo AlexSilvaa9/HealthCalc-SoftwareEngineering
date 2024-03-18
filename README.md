@@ -11,16 +11,14 @@ So that I can set goals to improve my physical health
 
 ##### Aceptance criteria
 
-    Scenario: calculate ideal weight with correct parameters
-    Given I click on "calculate ideal weight" Button
-    When I introduce my gender and heigth
-    And I click on "send" Button
-    Then I should see my ideal wheight
+    Scenario: Calculate ideal weight with correct parameters
+    Given my gender and heigth 
+    When I calcule my ideal weight
+    Then I should see my ideal wheight 
 
     Scenario: calculate ideal weight with incorrect parameters
-    Given I click on "calculate ideal weight" Button
-    When I introduce my gender or heigth incorrectly
-    And I click on "send" Button
+    Given my gender or heigth incorrectly
+    When I calcule my ideal weight
     Then The system raises an exception
 
 #### Metabolic basal rate calculation
@@ -32,16 +30,14 @@ So that I can set goals to improve my physical health
 ##### Aceptance criteria
 
 
-    Scenario: calculate metabolic basal rate with correct parameters
-    Given I click on "calculate metabolic basal rate" Button
-    When I introduce my gender, heigth, weight and age
-    And I click on "send" Button
-    Then I should see my metabolic basal rate
+    Scenario Outline: calculate metabolic basal rate with correct parameters
+    Given my gender, heigth, weight and age 
+    When I calcule my imb
+    Then I should see my imb
 
     Scenario: calculate metabolic basal rate with incorrect parameters
-    Given I click on "calculate metabolic basal rate" Button
-    When I introduce my gender, heigth, weight or age incorrectly
-    And I click on "send" Button
+    Given my gender, heigth, weight or age incorrectly
+    When I calcule my imb
     Then The system raises an exception
 
 ***

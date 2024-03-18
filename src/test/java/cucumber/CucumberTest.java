@@ -34,8 +34,8 @@ public void the_system_raises_an_exception() {
     assertEquals(true, raises_error);
 }
 
-@When("I calculate my ideal weight")
-public void i_calculate_my_ideal_weight() throws Exception {
+@When("I calcule my ideal weight")
+public void i_calcule_my_ideal_weight() {
     try{
         resultado=calc.idealWeight(height,gender);
     }catch(Exception e){
@@ -45,32 +45,33 @@ public void i_calculate_my_ideal_weight() throws Exception {
 
 @Then("I should see my ideal wheight {int}")
 public void i_should_see_my_ideal_wheight(float int1) throws Exception {
-    // Write code here that turns the phrase above into concrete actions
     assertEquals(int1,resultado);
 }
 
-@When("I introduce my gender {string} or heigth {int} incorrectly")
-public void i_introduce_my_gender_or_heigth_incorrectly(String string, Integer int1) {
-    height=int1;
-    gender=string.charAt(0);
+@Then("I should see my imb {float}")
+public void i_should_see_my_imb(float int1) throws Exception {
+    assertEquals(int1,resultado);
 }
 
-@When("I introduce my gender {string}, heigth {int}, weight {int} or age {int}")
-public void i_introduce_my_gender_heigth_weight_or_age(String string, Integer int1, Integer int2, Integer int3) {
+@When("I calcule my imb")
+public void i_calcule_my_imb() {
+    try{
+        resultado=calc.basalMetabolicRate(weight,height,gender,age);
+    }catch(Exception e){
+        raises_error=true;
+    }
+}
+
+@Given("my gender {string}, heigth {int}, weight {int} and age {int}")
+public void my_gender_heigth_weight_and_age(String string, Integer int1, Integer int2, Integer int3) {
     weight=int2;
     height=int1;
     gender=string.charAt(0);
     age=int3;
 }
 
-@Then("The system returns {double}")
-public void the_system_returns(Double double1) throws Exception {
-    // Write code here that turns the phrase above into concrete actions
-    assertEquals(double1,calc.basalMetabolicRate(weight, height, gender, age));
-}
-
-@When("I introduce my gender {string}, heigth {int}, weight {int} or age {int} incorrectly")
-public void i_introduce_my_gender_heigth_weight_or_age_incorrectly(String string, Integer int1, Integer int2, Integer int3) {
+@Given("my gender {string}, heigth {int}, weight {int} or age {int} incorrectly")
+public void my_gender_heigth_weight_or_age_incorrectly(String string, Integer int1, Integer int2, Integer int3) {
     weight=int2;
     height=int1;
     gender=string.charAt(0);
