@@ -5,9 +5,9 @@ Health calculator
 ### Historias de usuario
 #### Ideal weight calculation
 
-As a user
-I want to calcule my ideal weight 
-So that I can set goals to improve my physical health 
+    As a user
+    I want to calcule my ideal weight 
+    So that I can set goals to improve my physical health 
 
 ##### Aceptance criteria
 
