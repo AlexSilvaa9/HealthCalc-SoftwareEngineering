@@ -5,9 +5,8 @@ Feature: Ideal weight calculation
 
     @tag1
         Scenario Outline: Calculate ideal weight with correct parameters
-        Given I click on "calculate ideal weight" Button
-        When I introduce my gender <g> and heigth <h>
-        And I click on "send" Button
+        Given my gender <g> and heigth <h>
+        When I calculate my ideal weight
         Then I should see my ideal wheight <value>
         Examples:
             |  h | g |value |
@@ -17,9 +16,8 @@ Feature: Ideal weight calculation
 
     @tag2
         Scenario Outline: calculate ideal weight with incorrect parameters
-        Given I click on "calculate ideal weight" Button
-        When I introduce my gender <g> or heigth <h> incorrectly
-        And I click on "send" Button
+        Given my gender <g> or heigth <h> incorrectly
+        When I calculate my ideal weight
         Then The system raises an exception
         Examples:
             |  h | g |

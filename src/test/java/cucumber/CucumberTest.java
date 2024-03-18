@@ -10,36 +10,43 @@ import io.cucumber.java.en.When;
 
 public class CucumberTest {
 
-private HealthCalcImpl calc;
+private HealthCalcImpl calc= new HealthCalcImpl();
 private float weight;
 private int height;
 private char gender;
 private int age;
+private boolean raises_error;
+private float resultado;
 
-    @Given("I click on {string} Button")
-public void i_click_on_button(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    calc= new HealthCalcImpl();
-
-}
-
-@Then("The system raises an exception")
-public void the_system_raises_an_exception() {
-    assertThrows(RuntimeException.class, () -> calc.basalMetabolicRate(weight, height, gender, age));
-
-}
-
-@When("I introduce my gender {string} and heigth {int}")
-public void i_introduce_my_gender_and_heigth(String string, Integer int1) {
-    // Write code here that turns the phrase above into concrete actions
+    @Given("my gender {string} and heigth {int}")
+public void my_gender_and_heigth(String string, Integer int1) {
     height=int1;
     gender=string.charAt(0);
+
+}
+@Given("my gender {string} or heigth {int} incorrectly")
+public void my_gender_or_heigth_incorrectly(String string, Integer int1) {
+    height=int1;
+    gender=string.charAt(0);
+}
+@Then("The system raises an exception")
+public void the_system_raises_an_exception() {
+    assertEquals(true, raises_error);
+}
+
+@When("I calculate my ideal weight")
+public void i_calculate_my_ideal_weight() throws Exception {
+    try{
+        resultado=calc.idealWeight(height,gender);
+    }catch(Exception e){
+        raises_error=true;
+    }
 }
 
 @Then("I should see my ideal wheight {int}")
 public void i_should_see_my_ideal_wheight(float int1) throws Exception {
     // Write code here that turns the phrase above into concrete actions
-    assertEquals(int1,calc.idealWeight(height, gender));
+    assertEquals(int1,resultado);
 }
 
 @When("I introduce my gender {string} or heigth {int} incorrectly")
