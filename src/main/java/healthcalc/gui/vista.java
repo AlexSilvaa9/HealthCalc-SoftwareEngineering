@@ -18,80 +18,127 @@ public class vista extends JFrame {
     private JTextField theight;
     private JRadioButton rbmale;
     private JRadioButton rbfemale;
+    private JLabel lresult;
+    private JComboBox<String> cbmethod;
 
     public vista() {
+        try {
+            // Aplicar el tema Nimbus
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         JFrame frame = new JFrame("Health Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 300);
         
         JPanel panel = new JPanel(new GridBagLayout());
+        panel.setBackground(new Color(227, 242, 253)); // Azul claro
         GridBagConstraints constraints = new GridBagConstraints();
 
-        // Initialize constraints
-        constraints.insets = new Insets(5, 5, 5, 5);
         constraints.anchor = GridBagConstraints.WEST;
+        constraints.insets = new Insets(5, 5, 5, 5);
 
+        // Labels for inputs
         lheight = new JLabel("Height");
+        lheight.setForeground(new Color(31, 74, 137)); // Azul oscuro
         constraints.gridx = 0;
         constraints.gridy = 0;
         panel.add(lheight, constraints);
         
         lweight = new JLabel("Weight");
+        lweight.setForeground(new Color(31, 74, 137)); // Azul oscuro
         constraints.gridy = 1;
         panel.add(lweight, constraints);
         
         lage = new JLabel("Age");
+        lage.setForeground(new Color(31, 74, 137)); // Azul oscuro
         constraints.gridy = 2;
         panel.add(lage, constraints);
         
+        // Labels for options
         lgender = new JLabel("Gender");
-        constraints.gridy = 3;
+        lgender.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        constraints.gridx = 2;
+        constraints.gridy = 0;
         panel.add(lgender, constraints);
         
         lmethod = new JLabel("Method");
-        constraints.gridy = 4;
+        lmethod.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        constraints.gridy = 1;
         panel.add(lmethod, constraints);
-        
-        tage = new JTextField(15);
+
+        // Result label
+        lresult = new JLabel("Result");
+        lresult.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        constraints.gridx = 0;
+        constraints.gridy = 3;
+        constraints.gridwidth = 4;
+        panel.add(lresult, constraints);
+
+        // Text fields for inputs
+        theight = new JTextField(15);
         constraints.gridx = 1;
-        constraints.gridy = 2;
-        panel.add(tage, constraints);
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        panel.add(theight, constraints);
         
         tweight = new JTextField(15);
         constraints.gridy = 1;
         panel.add(tweight, constraints);
         
-        theight = new JTextField(15);
-        constraints.gridy = 0;
-        panel.add(theight, constraints);
+        tage = new JTextField(15);
+        constraints.gridy = 2;
+        panel.add(tage, constraints);
         
+        // Radio buttons for gender
+        ButtonGroup genderGroup = new ButtonGroup();
         rbmale = new JRadioButton("Male");
-        constraints.gridx = 1;
-        constraints.gridy = 3;
-        panel.add(rbmale, constraints);
-        
         rbfemale = new JRadioButton("Female");
-        constraints.gridy = 4;
-        panel.add(rbfemale, constraints);
+        rbmale.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        rbfemale.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        genderGroup.add(rbmale);
+        genderGroup.add(rbfemale);
         
+        JPanel genderPanel = new JPanel();
+        genderPanel.setBackground(new Color(227, 242, 253)); // Azul claro
+        genderPanel.add(rbmale);
+        genderPanel.add(rbfemale);
+        
+        constraints.gridx = 3;
+        constraints.gridy = 0;
+        panel.add(genderPanel, constraints);
+        
+        // List for method
         list_method = new JList<>();
-        // you can assign the elements to the list by changing above line to JList<String> list_method = new JList<>(yourStringArray);
-        constraints.gridx = 1;
-        constraints.gridy = 4;
+        constraints.gridy = 1;
         panel.add(list_method, constraints);
         
+        // Text field for result
         tresult = new JTextField(17);
+        tresult.setEditable(false);
+        tresult.setForeground(new Color(31, 74, 137)); // Azul oscuro
         constraints.gridx = 0;
-        constraints.gridy = 5;
-        constraints.gridwidth = 2;
+        constraints.gridy = 4;
+        constraints.gridwidth = 4;
         panel.add(tresult, constraints);
         
+        // Button for calculation
         bcalculate = new JButton("Calculate");
+        bcalculate.setBackground(new Color(31, 74, 137)); // Azul oscuro
+        bcalculate.setForeground(Color.WHITE);
         constraints.gridx = 0;
-        constraints.gridy = 6;
-        constraints.gridwidth = 2;
+        constraints.gridy = 5;
+        constraints.gridwidth = 4;
         panel.add(bcalculate, constraints);
         
+        // Combo box for method
+        cbmethod = new JComboBox<>(new String[]{"Ideal Weight", "Basal Metabolic Rate"});
+        cbmethod.setForeground(new Color(31, 74, 137)); // Azul oscuro
+        constraints.gridx = 3;
+        constraints.gridy = 1;
+        panel.add(cbmethod, constraints);
+
         frame.add(panel);
         frame.setVisible(true);
     }
@@ -121,21 +168,28 @@ public class vista extends JFrame {
         }
     }
 
-    public int getWeight() {
+    public float getWeight() {
         try {
-            return Integer.parseInt(tweight.getText());	
+            return Float.parseFloat(tweight.getText());	
         } catch (NumberFormatException e) {
             return -1;
         }
     }
 
-    public int getGender() {
+    public char getGender() {
         if (rbmale.isSelected()) {
-            return 0; // Male
+            return 'm'; // Male
         } else if (rbfemale.isSelected()) {
-            return 1; // Female
+            return 'f'; // Female
         } else {
-            return -1; // Neither male nor female selected
+            return 'x'; // Neither male nor female selected
         }
+    }
+
+    public String getMethod() {
+        return (String) cbmethod.getSelectedItem();
+    }
+    public void setResultado(String resultado){
+        tresult.setText(getMethod()+":"+resultado);
     }
 }
