@@ -1,6 +1,14 @@
 # isa2024-healtcalc
 Health calculator
 ***
+# Práctica 4: Interfaz gráfica de usuario
+En esta practica, hemos desarrollado una interfaz grafica con swim y apoyado de window builder
+## Boceto
+![imagen no cargan la puedes encontrar en el repositorio](interfaz_boceto.jpeg)
+
+## Diseño final
+![imagen no cargan la puedes encontrar en el repositorio](interfaz_final.png)
+
 # Pruebas unitarias
 ## Clase HealthCalImp
 ---
