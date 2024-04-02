@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import healthcalc.*;
 
-public class Main {
+public class main {
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
