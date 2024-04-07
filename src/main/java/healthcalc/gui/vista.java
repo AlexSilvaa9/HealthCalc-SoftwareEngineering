@@ -1,7 +1,10 @@
 package healthcalc.gui;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class vista extends JFrame {
@@ -20,7 +23,7 @@ public class vista extends JFrame {
     private JRadioButton rbfemale;
     private JLabel lresult;
     private JComboBox<String> cbmethod;
-
+    private JButton bclear;
     public vista() {
         try {
             // Aplicar el tema Nimbus
@@ -139,8 +142,28 @@ public class vista extends JFrame {
         constraints.gridy = 1;
         panel.add(cbmethod, constraints);
 
+        
+        bclear = new JButton("Limpiar");
+        bclear.setBackground(new Color(31, 74, 137)); // Azul oscuro
+        bclear.setForeground(Color.WHITE);
+        constraints.gridx = 2;
+        constraints.gridy = 5;
+        constraints.gridwidth = 4;
+        panel.add(bclear, constraints);
         frame.add(panel);
         frame.setVisible(true);
+        bclear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarCampos();
+            }
+        });
+
+        ((AbstractDocument) tage.getDocument()).setDocumentFilter(new NumberOnlyFilter());
+        ((AbstractDocument) tweight.getDocument()).setDocumentFilter(new DecimalFilter());
+        ((AbstractDocument) theight.getDocument()).setDocumentFilter(new NumberOnlyFilter());
+   
+
     }
 
     public void registrarControlador(ActionListener ctrl) {
@@ -191,5 +214,13 @@ public class vista extends JFrame {
     }
     public void setResultado(String resultado){
         tresult.setText(getMethod()+":"+resultado);
+    }
+    public void limpiarCampos() {
+        theight.setText("");    // Limpiar campo de altura
+        tweight.setText("");    // Limpiar campo de peso
+        tage.setText(""); 
+        tresult.setText("");     // Limpiar campo de edad
+        rbmale.setSelected(false);   // Desseleccionar botón de género masculino
+        rbfemale.setSelected(false); // Desseleccionar botón de género femenino
     }
 }

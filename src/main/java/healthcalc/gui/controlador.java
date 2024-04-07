@@ -43,7 +43,13 @@ public class controlador implements ActionListener {
             }
 			
 			
-		}
+		} else if (comando.equals("Limpiar")) {
+            // Lógica para limpiar los campos
+            limpiarCampos();
+        }
 	}
-
+    // Método para limpiar todos los campos en la vista
+    private void limpiarCampos() {
+        vista.limpiarCampos();
+    }
 }
