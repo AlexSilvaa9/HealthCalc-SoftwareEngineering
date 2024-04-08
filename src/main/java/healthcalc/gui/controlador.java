@@ -15,41 +15,50 @@ public class controlador implements ActionListener {
 		this.modelo = modelo;
 		this.vista = vista;
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String comando = e.getActionCommand();
-		if (comando.equals("Calcular")) {
-			// Calcular factorial
-			String method=vista.getMethod();
-            char gender=vista.getGender();
-            int height=vista.getHeight();
-            if(method.equals("Ideal Weight")){
+    @Override
+public void actionPerformed(ActionEvent e) {
+    String comando = e.getActionCommand();
+    if (comando.equals("Calcular")) {
+        // Calcular según el método seleccionado
+        String method = vista.getMethod();
+        char gender = vista.getGender();
+        int height = vista.getHeight();
+
+        if (method.equals("Ideal Weight")) {
+            if (height == 0 || gender == '\0') {
+                vista.error("Por favor, complete todos los campos.");
+            } else {
                 try {
-                    float resultado = modelo.idealWeight(height, gender);	
+                    float resultado = modelo.idealWeight(height, gender);
                     vista.setResultado(String.valueOf(resultado));
                 } catch (Exception error) {
-                    vista.error("error");
-                }
-            }else if(method.equals("Basal Metabolic Rate")){
-                try {
-                    int age=vista.getAge();
-                    float weight = vista.getWeight();
-                    float resultado = modelo.basalMetabolicRate(weight,height,gender,age);	
-                    vista.setResultado(String.valueOf(resultado));
-                } catch (Exception error) {
-                    vista.error("error");
+                    vista.error("Error en el cálculo del peso ideal.");
                 }
             }
-			
-			
-		} else if (comando.equals("Limpiar")) {
-            // Lógica para limpiar los campos
-            limpiarCampos();
+        } else if (method.equals("Basal Metabolic Rate")) {
+            int age = vista.getAge();
+            float weight = vista.getWeight();
+
+            if (height == 0 || gender == '\0' || age == 0 || weight == 0.0) {
+                vista.error("Por favor, complete todos los campos.");
+            } else {
+                try {
+                    float resultado = modelo.basalMetabolicRate(weight, height, gender, age);
+                    vista.setResultado(String.valueOf(resultado));
+                } catch (Exception error) {
+                    vista.error("Error en el cálculo de la tasa metabólica basal.");
+                }
+            }
         }
-	}
-    // Método para limpiar todos los campos en la vista
-    private void limpiarCampos() {
-        vista.limpiarCampos();
+    } else if (comando.equals("Limpiar")) {
+        // Lógica para limpiar los campos
+        limpiarCampos();
     }
 }
+
+// Método para limpiar todos los campos en la vista
+private void limpiarCampos() {
+    vista.limpiarCampos();
+}
+
+	}

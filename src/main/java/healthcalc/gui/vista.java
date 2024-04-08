@@ -162,11 +162,16 @@ public class vista extends JFrame {
         panel.add(bclear, constraints);
         frame.add(panel);
         frame.setVisible(true);
+
+        theight.setText("0");    // Limpiar campo de altura
+        tweight.setText("0");    // Limpiar campo de peso
+        tage.setText("0"); 
         bclear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 limpiarCampos();
             }
+
         });
 
         ((AbstractDocument) tage.getDocument()).setDocumentFilter(new NumberOnlyFilter());
@@ -226,9 +231,9 @@ public class vista extends JFrame {
         tresult.setText(getMethod()+":"+resultado);
     }
     public void limpiarCampos() {
-        theight.setText("");    // Limpiar campo de altura
-        tweight.setText("");    // Limpiar campo de peso
-        tage.setText(""); 
+        theight.setText("0");    // Limpiar campo de altura
+        tweight.setText("0");    // Limpiar campo de peso
+        tage.setText("0"); 
         tresult.setText("");     // Limpiar campo de edad
         rbmale.setSelected(false);   // Desseleccionar botón de género masculino
         rbfemale.setSelected(false); // Desseleccionar botón de género femenino
