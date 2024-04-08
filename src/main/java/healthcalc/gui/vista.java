@@ -144,7 +144,17 @@ public class vista extends JFrame {
 
         
         bclear = new JButton("Limpiar");
-        bclear.setBackground(new Color(31, 74, 137)); // Azul oscuro
+        String hex = "9CAFAA";
+        int rgb = Integer.parseInt(hex, 16);
+        
+        // Extraer los componentes R, G, B
+        int red = (rgb >> 16) & 0xFF;
+        int green = (rgb >> 8) & 0xFF;
+        int blue = rgb & 0xFF;
+        
+        // Crear un objeto Color
+        Color color = new Color(red, green, blue);
+        bclear.setBackground(color); // Azul oscuro
         bclear.setForeground(Color.WHITE);
         constraints.gridx = 2;
         constraints.gridy = 5;
