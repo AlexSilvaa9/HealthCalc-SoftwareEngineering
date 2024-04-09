@@ -9,6 +9,10 @@ En esta practica, hemos desarrollado una interfaz grafica con swim y apoyado de 
 ## Diseño final
 ![imagen no cargan la puedes encontrar en el repositorio](interfaz_final.png)
 
+La interfaz grafica esta diseñada para solo admitir el tipo de numero correspondiente a cada campo.
+Utilizando Tab se puede navegar por los campos:
+- para seleccionar sexo sin ratón, navegar hasta el y pulsar la barra espaciadora.
+- para cambiar el metodo, navegar hasta el campo y seleccionar con flehas hacia arriba o abajo.
 # Pruebas unitarias
 ## Clase HealthCalImp
 ---

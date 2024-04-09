@@ -1,11 +1,14 @@
 package healthcalc.gui;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.text.AbstractDocument;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 public class vista extends JFrame {
     private JButton bcalculate;
@@ -166,6 +169,57 @@ public class vista extends JFrame {
         theight.setText("0");    // Limpiar campo de altura
         tweight.setText("0");    // Limpiar campo de peso
         tage.setText("0"); 
+
+        // Establecer el foco inicial en el campo theight
+        theight.requestFocus();
+        addFocusListenerToTextField(theight);
+        addFocusListenerToTextField(tweight);
+        addFocusListenerToTextField(tage);
+
+        // Configurar el orden de tabulación (Tab) de los campos de texto
+        setFocusTraversalPolicy(new FocusTraversalPolicy() {
+            @Override
+            public Component getComponentAfter(Container focusCycleRoot, Component aComponent) {
+                if (aComponent.equals(theight)) {
+                    return tweight;
+                } else if (aComponent.equals(tweight)) {
+                    return tage;
+                } else if (aComponent.equals(tage)) {
+                    return theight; // Circular tabbing (vuelve al primer campo al llegar al último)
+                } else {
+                    return theight; // Default to the first component
+                }
+            }
+
+            @Override
+            public Component getComponentBefore(Container focusCycleRoot, Component aComponent) {
+                if (aComponent.equals(theight)) {
+                    return tage;
+                } else if (aComponent.equals(tweight)) {
+                    return theight;
+                } else if (aComponent.equals(tage)) {
+                    return tweight; // Circular tabbing (vuelve al último campo al retroceder desde el primero)
+                } else {
+                    return tage; // Default to the last component
+                }
+            }
+
+            @Override
+            public Component getDefaultComponent(Container focusCycleRoot) {
+                return theight; // Default starting component
+            }
+
+            @Override
+            public Component getLastComponent(Container focusCycleRoot) {
+                return tage; // Last component in tab order
+            }
+
+            @Override
+            public Component getFirstComponent(Container focusCycleRoot) {
+                return theight; // First component in tab order
+            }
+        });
+        
         bclear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,7 +234,31 @@ public class vista extends JFrame {
    
 
     }
+    
 
+
+
+
+
+    private void addFocusListenerToTextField(JTextField textField) {
+        // Obtener el borde actual del JTextField
+        Border currentBorder = textField.getBorder();
+
+        // Crear un borde rojo para resaltar el JTextField cuando recibe el foco
+        Border redBorder = BorderFactory.createLineBorder(Color.BLUE, 2); // Grosor de 2 píxeles
+
+        textField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                textField.setBorder(redBorder);
+            }
+    
+            @Override
+            public void focusLost(FocusEvent e) {
+                textField.setBorder(currentBorder);
+            }
+        });
+    }
     public void registrarControlador(ActionListener ctrl) {
         bcalculate.addActionListener(ctrl);
         bcalculate.setActionCommand("Calcular");
