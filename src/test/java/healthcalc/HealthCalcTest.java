@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("Tests para la calculadora de salud.")
 public class HealthCalcTest {
-	private HealthCalcImpl calc= new HealthCalcImpl();
+	private HealthCalcImpl calc= HealthCalcImpl.getInstance();
 
 	@Test
 	@DisplayName("Altura negativa en Ideal Weight")

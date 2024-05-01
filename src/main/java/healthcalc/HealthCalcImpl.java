@@ -2,6 +2,19 @@ package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
 
+
+    private static HealthCalcImpl instance;
+
+    private HealthCalcImpl(){
+        super();
+    }
+    public static HealthCalcImpl getInstance(){
+        if (instance==null) {
+            instance=new HealthCalcImpl();
+            
+        }
+        return instance;
+    }
     public float idealWeight(int height, char gender) throws Exception{
     //  * Calculate the ideal weight (IW) of a person following the Lorentz formula:
         if(height<=0){
