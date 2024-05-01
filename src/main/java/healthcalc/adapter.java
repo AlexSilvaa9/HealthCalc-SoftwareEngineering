@@ -10,10 +10,10 @@ public class adapter implements HealthHospital {
     }
     @Override
     public float pesoIdeal(int altura, char genero) throws Exception {
-        // pasar a metros y gramos
-        throw new UnsupportedOperationException("Unimplemented method 'pesoIdeal'");
-        // y pasar otra vez a lo que tenia que ser
-
+        // pasar a metros 
+        altura*=100;
+        // y pasar a gramos
+        return (float) (calculadora.idealWeight(altura, genero)*1000);
     }
 
     @Override
