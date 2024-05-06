@@ -71,6 +71,8 @@ public class HealthStatsImp implements HealthStats{
     public int numTotalPacientes() {
         return numPacientes;
     }
+
+    
     public void añadeAltura(float altura){
         alturas.add(altura);
     }
@@ -93,5 +95,5 @@ public class HealthStatsImp implements HealthStats{
     public void añadePaciente(){
         numPacientes++;
     }
-    
+
 }
