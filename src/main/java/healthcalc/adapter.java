@@ -1,11 +1,11 @@
 package healthcalc;
 
 public class adapter implements HealthHospital{
-    private HealthCalcImpl adaptado;
+    private Proxy adaptado;
 
     public adapter(){
         super();
-        adaptado=HealthCalcImpl.getInstance();
+        adaptado=new Proxy();
         
     }
     @Override
