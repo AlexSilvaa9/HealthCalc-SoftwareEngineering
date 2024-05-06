@@ -1,6 +1,5 @@
 package healthcalc;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class HealthStatsImp implements HealthStats{
@@ -71,6 +70,28 @@ public class HealthStatsImp implements HealthStats{
     @Override
     public int numTotalPacientes() {
         return numPacientes;
+    }
+    public void añadeAltura(float altura){
+        alturas.add(altura);
+    }
+    public void añadePeso(float peso){
+        pesos.add(peso);
+    }
+    public void añadeEdad(int edad){
+        edades.add(edad);
+    }
+    public void añadeBmr(float bmr){
+        bmrs.add(bmr);
+    }
+    public void añadeSexo(char sexo){
+        if(sexo == 'm'){
+            numSexoM++;
+        }else{
+            numSexoH++;
+        }
+    }
+    public void añadePaciente(){
+        numPacientes++;
     }
     
 }
