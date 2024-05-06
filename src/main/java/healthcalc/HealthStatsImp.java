@@ -4,22 +4,24 @@ import java.util.ArrayList;
 
 public class HealthStatsImp implements HealthStats{
 
-    public ArrayList<Float> pesos;
-    public ArrayList<Float> alturas;
-    public ArrayList<Integer> edades;
-    public ArrayList<Float> bmrs;
-    public int numPacientes;
-    public int numSexoH;
-    public int numSexoM;
-
-    public HealthStatsImp(){
-        pesos = new ArrayList<Float>();
-        alturas = new ArrayList<Float>();
-        edades = new ArrayList<Integer>();
-        bmrs = new ArrayList<Float>();
-        numPacientes = 0;
-        numSexoH = 0;
-        numSexoM = 0;
+    public ArrayList<Float> pesos= new ArrayList<Float>();
+    public ArrayList<Float> alturas= new ArrayList<Float>();
+    public ArrayList<Integer> edades= new ArrayList<Integer>();
+    public ArrayList<Float> bmrs= new ArrayList<Float>();
+    public int numPacientes= 0;
+    public int numSexoH= 0;
+    public int numSexoM= 0;
+    private static HealthStatsImp instance;
+    
+    private HealthStatsImp(){
+        super();
+    }
+    public static HealthStatsImp getInstance(){
+        if (instance==null) {
+            instance=new HealthStatsImp();
+            
+        }
+        return instance;
     }
     @Override
     public float alturaMedia() {
@@ -72,7 +74,7 @@ public class HealthStatsImp implements HealthStats{
         return numPacientes;
     }
 
-    
+
     public void añadeAltura(float altura){
         alturas.add(altura);
     }

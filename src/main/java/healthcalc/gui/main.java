@@ -22,6 +22,10 @@ public class main {
 		// });
 		HealthHospital modelo = new adapter();
 		System.out.println(modelo.pesoIdeal((float) 1.8, 'm'));
+		System.out.println(modelo.pesoIdeal((float) 1.4, 'm'));
+		System.out.println(modelo.pesoIdeal((float) 1.1, 'm'));
+		HealthStats estadisticas=HealthStatsImp.getInstance();
+		System.out.println(estadisticas.alturaMedia());
 
 	}
 }

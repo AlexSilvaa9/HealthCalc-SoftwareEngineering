@@ -5,7 +5,7 @@ public class Proxy implements HealthCalc{
     private HealthStatsImp estadisticas;
     public Proxy(){
         calculadoraReal = HealthCalcImpl.getInstance();
-        estadisticas = new HealthStatsImp();
+        estadisticas = HealthStatsImp.getInstance();
     }
     @Override
     public float idealWeight(int height, char gender) throws Exception {
