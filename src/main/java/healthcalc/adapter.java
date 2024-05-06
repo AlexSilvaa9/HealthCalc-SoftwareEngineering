@@ -1,26 +1,26 @@
 package healthcalc;
 
-public class adapter implements HealthHospital {
-    private HealthCalcImpl calculadora;
+public class adapter implements HealthHospital{
+    private HealthCalcImpl adaptado;
 
     public adapter(){
         super();
-        calculadora=HealthCalcImpl.getInstance();
+        adaptado=HealthCalcImpl.getInstance();
         
     }
     @Override
-    public float pesoIdeal(int altura, char genero) throws Exception {
+    public float pesoIdeal(float altura, char genero) throws Exception {
         // pasar a metros 
-        altura*=100;
         // y pasar a gramos
-        return (float) (calculadora.idealWeight(altura, genero)*1000);
+        return  adaptado.idealWeight((int) (altura*100), genero)*1000;
     }
 
     @Override
-    public float bmr(float peso, int altura, char genero, int edad) throws Exception {
+    public float bmr(int peso, float altura, char genero, int edad) throws Exception {
         // pasar a metros y gramos
-        throw new UnsupportedOperationException("Unimplemented method 'bmr'");
+       
         // y pasar otra vez a lo que tenia que ser
+        return adaptado.basalMetabolicRate(altura*100, edad, genero, genero)*1000;
     }
     
 }

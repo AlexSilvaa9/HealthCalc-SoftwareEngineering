@@ -18,7 +18,7 @@ public interface HealthHospital {
 	 * @return 		 	The ideal weight of the person (g).
 	 * @throws Exception 
 	 */
-	public float pesoIdeal(int altura, char genero) throws Exception;
+	public float pesoIdeal(float altura, char genero) throws Exception;
 	
 	/**
 	 * Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
@@ -32,5 +32,5 @@ public interface HealthHospital {
 	 * @return	  		The Basal Metabolic Rate of the person.
 	 * @throws Exception
 	 */
-	public float bmr(float peso, int altura, char genero, int edad) throws Exception;
+	public float bmr(int peso, float altura, char genero, int edad) throws Exception;
 }
