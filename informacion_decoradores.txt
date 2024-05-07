@@ -1,0 +1,3 @@
+La idea del decorador es que quiero mezclar europeo y americano con ingles y español. sino con un patron de fabricacion valdria
+hay 4 decoradores:uno para americana, europea y uno para español y otro ingles.
+Hay que envolver a la interfaz del adaptador(hospital)ya que es el que uso en el main
