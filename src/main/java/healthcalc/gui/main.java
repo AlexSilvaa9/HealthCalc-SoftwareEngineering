@@ -20,12 +20,25 @@ public class main {
 		// 		}
 		// 	}
 		// });
+
+	
+		//probar proxy y adapter
+
+		// HealthHospital modelo = new adapter();
+		// System.out.println(modelo.pesoIdeal((float) 1.8, 'm'));
+		// System.out.println(modelo.pesoIdeal((float) 1.4, 'm'));
+		// System.out.println(modelo.pesoIdeal((float) 1.1, 'm'));
+		// HealthStats estadisticas=HealthStatsImp.getInstance();
+		// System.out.println(estadisticas.alturaMedia());
+
+		//probar decorador
 		HealthHospital modelo = new adapter();
+		HealthHospital modeloAmericano = new DecoradorAmericano(modelo);
+		HealthHospital modeloEuropeo = new DecoradorEuropeo(modelo);
+		
 		System.out.println(modelo.pesoIdeal((float) 1.8, 'm'));
-		System.out.println(modelo.pesoIdeal((float) 1.4, 'm'));
-		System.out.println(modelo.pesoIdeal((float) 1.1, 'm'));
-		HealthStats estadisticas=HealthStatsImp.getInstance();
-		System.out.println(estadisticas.alturaMedia());
+		System.out.println(modeloAmericano.pesoIdeal((float) 1.8, 'm'));
+		System.out.println(modeloEuropeo.pesoIdeal((float) 1.8, 'm'));
 
 	}
 }

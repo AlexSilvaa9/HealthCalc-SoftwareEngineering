@@ -2,7 +2,7 @@ package healthcalc;
 
 public class BaseDecorator implements HealthHospital {
     private HealthHospital wrappee;
-    BaseDecorator(HealthHospital componente) {
+    public BaseDecorator(HealthHospital componente) {
         this.wrappee = componente;
     }
     @Override
