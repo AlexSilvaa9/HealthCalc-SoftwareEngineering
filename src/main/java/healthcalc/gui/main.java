@@ -36,9 +36,22 @@ public class main {
 		HealthHospital modeloAmericano = new DecoradorAmericano(modelo);
 		HealthHospital modeloEuropeo = new DecoradorEuropeo(modelo);
 		
-		System.out.println(modelo.pesoIdeal((float) 1.8, 'm'));
 		System.out.println(modeloAmericano.pesoIdeal((float) 1.8, 'm'));
 		System.out.println(modeloEuropeo.pesoIdeal((float) 1.8, 'm'));
+
+		HealthHospital modeloAmericanoEspanol = new DecoradorEspañol(modeloAmericano);
+		System.out.println(modeloAmericanoEspanol.pesoIdeal((float) 1.8, 'm'));
+
+		HealthHospital modeloAmericanoIngles = new DecoradorIngles(modeloAmericano);
+		System.out.println(modeloAmericanoIngles.pesoIdeal((float) 1.8, 'm'));
+
+		HealthHospital modeloEuropeoEspanol = new DecoradorEspañol(modeloEuropeo);
+		System.out.println(modeloEuropeoEspanol.pesoIdeal((float) 1.8, 'm'));
+
+		HealthHospital modeloEuropeoIngles = new DecoradorIngles(modeloEuropeo);
+		System.out.println(modeloEuropeoIngles.pesoIdeal((float) 1.8, 'm'));
+
+		
 
 	}
 }
