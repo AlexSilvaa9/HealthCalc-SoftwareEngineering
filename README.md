@@ -1,6 +1,27 @@
 # isa2024-healtcalc
 Health calculator
 ***
+# Práctica 6: Patrones de diseño
+En esta practica, hemos implementado patrones de diseño para realizar tareas especificas como adaptar nuestra calculadora a las especificaciones de un hopital, llevar un registro y sacar estadisticas de los datos con proxy o traducir nuestra calculadora a distintos idiomas y sistemas metricos con decoradores.
+
+## Singleton
+Implementamos singleton para solo tener una calculadora en todo el programa.
+![imagen no cargan la puedes encontrar en el repositorio](design_patterns/singleton.png)
+## Adapter
+Adaptamos nuestra calculadora a la interfaz suministrada por el **Hospital Costa Del Sol De Marbella** que usa altura en metros u peso en gramos.
+![imagen no cargan la puedes encontrar en el repositorio](design_patterns/adapter.png)
+## Proxy
+También nos han pedido que se lleve un registro de las veces que se utiliza la 
+calculadora en su sistema informático, almacenando los datos de los pacientes de 
+forma anónima, y permitiendo obtener la media de los valores introducidos y 
+calculados por la calculadora de todos los pacientes. Para ello, nos han dado la interfaz HealthStats.
+
+Diseñamos una solución con el patron Proxy, que redirigirá los datos a una clase Singleton de estadistica, que los almacenará y calculará medidas.
+![imagen no cargan la puedes encontrar en el repositorio](design_patterns/proxy.png)
+## Decorator
+Por último, queremos implementar distintas formas de visualizar los resultados. Se quiere tener diferentes idiomas y unidades de medidas, podiendolos mezclar a gusto del cliente. Para esto aplicaremos el patron decorador, los distintos decoradores(unidades europeas,unidades americanas, ingles, español) envolverán el objeto HealthHospital, confiriendole de flexibilidad y variavilidad en runtime.
+![imagen no cargan la puedes encontrar en el repositorio](design_patterns/decorador.png)
+
 # Práctica 4: Interfaz gráfica de usuario
 En esta practica, hemos desarrollado una interfaz grafica con swim y apoyado de window builder
 ## Boceto
