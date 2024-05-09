@@ -1,6 +1,9 @@
 # isa2024-healtcalc
 Health calculator
 ***
+
+# Práctica 7: Refactorings
+
 # Práctica 6: Patrones de diseño
 En esta practica, hemos implementado patrones de diseño para realizar tareas especificas como adaptar nuestra calculadora a las especificaciones de un hopital, llevar un registro y sacar estadisticas de los datos con proxy o traducir nuestra calculadora a distintos idiomas y sistemas metricos con decoradores.
 
