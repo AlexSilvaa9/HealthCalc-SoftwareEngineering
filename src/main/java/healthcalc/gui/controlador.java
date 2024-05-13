@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
+import healthcalc.PersonImp;
 
 
 public class controlador implements ActionListener {
@@ -29,7 +30,7 @@ public void actionPerformed(ActionEvent e) {
                 vista.error("Por favor, complete todos los campos.");
             } else {
                 try {
-                    double resultado = modelo.idealWeight(height, gender);
+                    double resultado = modelo.idealWeight(new PersonImp(height, gender));
                     vista.setResultado(String.valueOf(resultado));
                 } catch (Exception error) {
                     vista.error("Error en el cálculo del peso ideal.");
@@ -43,7 +44,7 @@ public void actionPerformed(ActionEvent e) {
                 vista.error("Por favor, complete todos los campos.");
             } else {
                 try {
-                    double resultado = modelo.basalMetabolicRate(weight, height, gender, age);
+                    double resultado = modelo.basalMetabolicRate(new PersonImp(weight, height, gender, age));
                     vista.setResultado(String.valueOf(resultado));
                 } catch (Exception error) {
                     vista.error("Error en el cálculo de la tasa metabólica basal.");
