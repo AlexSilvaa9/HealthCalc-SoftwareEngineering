@@ -3,6 +3,34 @@ Health calculator
 ***
 
 # Práctica 7: Refactorings
+## Refactoring 1
+Bad smell: Large class /Sympthom: too many resoibsibility /Violacion del principio de segregación de interfaces
+Extract Class: dividimos la interfaz calculadora en dos interfaces, una para cada operación
+Tipo:class refactoring
+Descripcion: Ahora, calculadoraSalud tendra un objeto CardiovascularMtreics y otro MetabolicMetrics
+Cambios:2 clases nuevas, dos interfaces, cambios en dos metodos de HealthCalcImp, añadidos atributos en esta. Total:8
+
+## Refactoring 2
+Bad smelling: diferencias entre tipos numericos
+Cambio de tipo de salida en los calculos a double
+Tipo: method refactoring
+Descripcion: Cambiaremos el tipo de salida a double para unificarlos.
+Cambios:2 metodos, 2 metodos en HealthCalcImp y los returns de HealthCalc. Returns del proxy y hacer cast en adapter. cambiar tipo de las variables resultado del controlador a double.(Importante no cambiar la interfaz HealthHospital porque no es nuestra). Total:12
+
+## Refactoring 3
+Problema: Se usa caracter como genero
+Solución: creamos un tipo enumerate que contenga sexo masculino y femenino.
+Tipo: attribute refactoring
+Descripcion: Pasaremos como parametro a la calculadora el sexo en forma de enumerado
+Cambios: Crear un enumerate, 2 parametros de metodos en interfaces, las implementacines de estas. Parametros de calculadora y su interfaz. Cambiado proxy y healthstats. vista controlador y test cambiados. Total:13
+
+## Refactoring 4
+Bad smelling:metodo muy grande,con muchos parametros de entrada / LONG PARAMETER LIST /grupos cohesionados pueden constituir clases independientes / Data Clumps-Data that are always used together
+Introduce Parameter Object
+Tipo: class refactoring
+Descripcion: Crearemos la clase persona, que será pasada a la calculadora, en vez de una larga lista de atributos de esta.persona tendra dos constructores, uno para cada tipo de calculo.
+Cambios: Crear clase persona e implementacion. Cambiar metodos e interfaces de los metrics.Cambiamos interfaz y clase calculadora. Proxy,adapter,controlador y test. Total:14
+
 
 # Práctica 6: Patrones de diseño
 En esta practica, hemos implementado patrones de diseño para realizar tareas especificas como adaptar nuestra calculadora a las especificaciones de un hopital, llevar un registro y sacar estadisticas de los datos con proxy o traducir nuestra calculadora a distintos idiomas y sistemas metricos con decoradores.
