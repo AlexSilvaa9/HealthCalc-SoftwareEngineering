@@ -24,10 +24,7 @@ Bad smelling:metodo muy grande,con muchos parametros de entrada / LONG PARAMETER
 Introduce Parameter Object
 class refactoring
 Crearemos la clase persona, que será pasada a la calculadora, en vez de una larga lista de atributos de esta.
-
-(5) número de cambios manuales que has tenido que hacer para aplicar el refactoring. Por ejemplo: 2
-líneas de código, 3 clases,… (Contar solo los cambios manuales, no los que haga la herramienta
-automáticamente).
+Crear clase persona e implementacion. persona tendra dos constructores, uno para cada tipo de calculo. cambiar metodos e interfaces de los metrics
 
 
 
