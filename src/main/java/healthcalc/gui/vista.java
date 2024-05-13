@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.text.AbstractDocument;
 
+import healthcalc.Gender;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -292,13 +294,13 @@ public class vista extends JFrame {
         }
     }
 
-    public char getGender() {
+    public Gender getGender() {
         if (rbmale.isSelected()) {
-            return 'm'; // Male
+            return Gender.MALE; // Male
         } else if (rbfemale.isSelected()) {
-            return 'f'; // Female
+            return Gender.FEMALE; // Female
         } else {
-            return 'x'; // Neither male nor female selected
+            return null; // Neither male nor female selected
         }
     }
 
