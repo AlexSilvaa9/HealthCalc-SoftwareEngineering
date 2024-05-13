@@ -1,7 +1,8 @@
 package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
-
+    private CardiovascularMetrics cardiovascularMetrics=new CardiovascularMetricsImp();
+    private MetabolicMetrics metabolicMetrics=new MetabolicMetricsImp();
 
     private static HealthCalcImpl instance;
 
