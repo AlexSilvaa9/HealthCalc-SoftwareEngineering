@@ -29,7 +29,7 @@ public void actionPerformed(ActionEvent e) {
                 vista.error("Por favor, complete todos los campos.");
             } else {
                 try {
-                    float resultado = modelo.idealWeight(height, gender);
+                    double resultado = modelo.idealWeight(height, gender);
                     vista.setResultado(String.valueOf(resultado));
                 } catch (Exception error) {
                     vista.error("Error en el cálculo del peso ideal.");
@@ -43,7 +43,7 @@ public void actionPerformed(ActionEvent e) {
                 vista.error("Por favor, complete todos los campos.");
             } else {
                 try {
-                    float resultado = modelo.basalMetabolicRate(weight, height, gender, age);
+                    double resultado = modelo.basalMetabolicRate(weight, height, gender, age);
                     vista.setResultado(String.valueOf(resultado));
                 } catch (Exception error) {
                     vista.error("Error en el cálculo de la tasa metabólica basal.");

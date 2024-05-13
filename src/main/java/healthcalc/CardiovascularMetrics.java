@@ -10,7 +10,7 @@ public interface CardiovascularMetrics {
 	 * @return 		 	The ideal weight of the person (kg).
 	 * @throws Exception 
 	 */
-    public float getIdealWeight(int height, char gender) throws Exception;
+    public double getIdealWeight(int height, char gender) throws Exception;
         
 
 }

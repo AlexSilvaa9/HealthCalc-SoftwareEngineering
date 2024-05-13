@@ -13,5 +13,5 @@ public interface MetabolicMetrics {
 	 * @return	  		The Basal Metabolic Rate of the person.
 	 * @throws Exception
 	 */
-	public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception;
+	public double basalMetabolicRate(float weight, int height, char gender, int age) throws Exception;
 }

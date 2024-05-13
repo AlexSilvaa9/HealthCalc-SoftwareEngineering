@@ -2,7 +2,7 @@ package healthcalc;
 
 public class CardiovascularMetricsImp implements CardiovascularMetrics{
 
-    public float getIdealWeight(int height, char gender) throws Exception{
+    public double getIdealWeight(int height, char gender) throws Exception{
         //  * Calculate the ideal weight (IW) of a person following the Lorentz formula:
             if(height<=0){
                 throw new RuntimeException("altura menor o igual que cero");
@@ -17,7 +17,7 @@ public class CardiovascularMetricsImp implements CardiovascularMetrics{
                 IW = (height - 100 - (height - 150) / 2.5);
             }
             
-            return (float) IW;
+            return  IW;
 }
 
   

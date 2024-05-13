@@ -8,14 +8,14 @@ public class Proxy implements HealthCalc{
         estadisticas = HealthStatsImp.getInstance();
     }
     @Override
-    public float idealWeight(int height, char gender) throws Exception {
+    public double idealWeight(int height, char gender) throws Exception {
         estadisticas.añadeAltura(height);
         estadisticas.añadeSexo(gender);
         estadisticas.añadePaciente();
         return calculadoraReal.idealWeight(height,gender);
     }
     @Override
-    public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
+    public double basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
         estadisticas.añadePeso(weight);
         estadisticas.añadeAltura(height);
         estadisticas.añadeSexo(gender);

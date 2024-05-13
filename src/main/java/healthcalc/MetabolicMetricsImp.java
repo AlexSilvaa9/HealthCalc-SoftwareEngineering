@@ -2,7 +2,7 @@ package healthcalc;
 
 public class MetabolicMetricsImp implements MetabolicMetrics{
 
-    public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
+    public double basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
         gender=Character.toUpperCase(gender);
 
@@ -25,11 +25,10 @@ public class MetabolicMetricsImp implements MetabolicMetrics{
             BMR = 10 * weight + 6.25 * height - 5 * age - 161;
         }
         // cuando se desborda pasa a ser infinito
-        float fBMR=(float)BMR;
-        if(Float.isInfinite(fBMR)){
+        if(Double.isInfinite(BMR)){
             throw new ArithmeticException("Se ha desbordado");
         }
-        return fBMR;
+        return BMR;
     
 	 
     }
