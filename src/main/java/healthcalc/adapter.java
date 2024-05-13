@@ -18,7 +18,8 @@ public class adapter implements HealthHospital{
         } else if (genero == 'f') {
             genero_enum = Gender.FEMALE;
         }
-        return  (float) (adaptado.idealWeight((int) (altura*100), genero_enum)*1000);
+        
+        return  (float) (adaptado.idealWeight(new PersonImp((int) (altura*100), genero_enum))*1000);
     }
 
     @Override
@@ -32,7 +33,8 @@ public class adapter implements HealthHospital{
         } else if (genero == 'f') {
             genero_enum = Gender.FEMALE;
         }
-        return (float) (adaptado.basalMetabolicRate(altura*100, edad, genero_enum, genero)*1000);
+        
+        return (float) (adaptado.basalMetabolicRate(new PersonImp(altura*100, edad, genero_enum, genero))*1000);
     }
     
 }
