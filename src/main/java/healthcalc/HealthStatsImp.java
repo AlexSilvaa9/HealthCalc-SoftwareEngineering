@@ -87,8 +87,8 @@ public class HealthStatsImp implements HealthStats{
     public void añadeBmr(float bmr){
         bmrs.add(bmr);
     }
-    public void añadeSexo(char sexo){
-        if(sexo == 'm'){
+    public void añadeSexo(Gender gender){
+        if(gender.equals(Gender.MALE)){
             numSexoM++;
         }else{
             numSexoH++;

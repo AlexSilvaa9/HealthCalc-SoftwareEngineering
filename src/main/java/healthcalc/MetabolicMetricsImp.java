@@ -2,9 +2,8 @@ package healthcalc;
 
 public class MetabolicMetricsImp implements MetabolicMetrics{
 
-    public double basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
+    public double basalMetabolicRate(float weight, int height, Gender gender, int age) throws Exception{
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
-        gender=Character.toUpperCase(gender);
 
         if(weight <= 0){
             throw new RuntimeException("peso menor o igual que cero");
@@ -15,11 +14,11 @@ public class MetabolicMetricsImp implements MetabolicMetrics{
         if(age <= 0){
             throw new RuntimeException("edad menor o igual que cero");
         }
-        if(!(gender=='M' || gender=='F')){
+        if(!(gender.equals(Gender.MALE) || gender.equals(Gender.FEMALE))){
             throw new RuntimeException("Genero incorrecto");
         }
         double BMR;
-        if(gender=='M'){
+        if(gender.equals(Gender.MALE)){
             BMR = 10 * weight + 6.25 * height - 5 * age + 5;
         }else{
             BMR = 10 * weight + 6.25 * height - 5 * age - 161;

@@ -12,7 +12,13 @@ public class adapter implements HealthHospital{
     public float pesoIdeal(float altura, char genero) throws Exception {
         // pasar a metros 
         // y pasar a gramos
-        return  (float) (adaptado.idealWeight((int) (altura*100), genero)*1000);
+        Gender genero_enum=null;
+        if (genero == 'm') {
+            genero_enum = Gender.MALE;
+        } else if (genero == 'f') {
+            genero_enum = Gender.FEMALE;
+        }
+        return  (float) (adaptado.idealWeight((int) (altura*100), genero_enum)*1000);
     }
 
     @Override
@@ -20,7 +26,13 @@ public class adapter implements HealthHospital{
         // pasar a metros y gramos
        
         // y pasar otra vez a lo que tenia que ser
-        return (float) (adaptado.basalMetabolicRate(altura*100, edad, genero, genero)*1000);
+        Gender genero_enum=null;
+        if (genero == 'm') {
+            genero_enum = Gender.MALE;
+        } else if (genero == 'f') {
+            genero_enum = Gender.FEMALE;
+        }
+        return (float) (adaptado.basalMetabolicRate(altura*100, edad, genero_enum, genero)*1000);
     }
     
 }
