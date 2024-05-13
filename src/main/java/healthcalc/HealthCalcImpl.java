@@ -16,14 +16,14 @@ public class HealthCalcImpl implements HealthCalc {
         }
         return instance;
     }
-    public double idealWeight(int height, Gender gender) throws Exception{
+    public double idealWeight(Person person) throws Exception{
     //  * Calculate the ideal weight (IW) of a person following the Lorentz formula:
-       return cardiovascularMetrics.getIdealWeight(height,gender);
+       return cardiovascularMetrics.getIdealWeight(person);
 	 
     }
-    public double basalMetabolicRate(float weight, int height, Gender gender, int age) throws Exception{
+    public double basalMetabolicRate(Person person) throws Exception{
         // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
-        return metabolicMetrics.basalMetabolicRate(weight, height, gender, age);
+        return metabolicMetrics.basalMetabolicRate(person);
     
 	 
     }
