@@ -12,17 +12,22 @@ method refactoring
 Cambiaremos el tipo de salida a double para unificarlos.
 2 metodos, 2 metodos en HealthCalcImp y los returns de HealthCalc. Returns del proxy y hacer cast en adapter. cambiar tipo de las variables resultado del controlador a double.(Importante no cambiar la interfaz HealthHospital porque no es nuestra)
 
-metodo muy grande,con muchos parametros de entrada-LONG PARAMETER LIST
+Problema: Se usa caracter como genero
+Solución: creamos un tipo enumerate que contenga sexo masculino y femenino.
+attribute refactoring
+Pasaremos como parametro a la calculadora el sexo en forma de enumerado
+Cambios: Crear un enumerate, 2 parametros de metodos en interfaces, las implementacines de estas. Parametros de calculadora y su interfaz. Cambiado proxy y healthstats. vista controlador y test cambiados.
 
-(1) el nombre (en inglés o español) del “bad smell” o el problema que resuelve el refactoring aplicado
-(ejemplo: duplicación de código, clase Dios, método con muchos parámetros,…),
-(2) el/los refactorings aplicados para resolverlo (extracción de método, encapsulación de campo,…)
-(3) el tipo/categoría del refactoring (class refactoring, method refactoring, attribute refactoring),
-(4) una breve descripción del cambio que ha realizado en su proyecto (un pequeño párrafo de 2 o 3
-líneas como máximo).
+
+
+Bad smelling:metodo muy grande,con muchos parametros de entrada / LONG PARAMETER LIST /grupos cohesionados pueden constituir clases independientes / Data Clumps-Data that are always used together
+Introduce Parameter Object
+class refactoring
+Crearemos la clase persona, que será pasada a la calculadora, en vez de una larga lista de atributos de esta.
+
 (5) número de cambios manuales que has tenido que hacer para aplicar el refactoring. Por ejemplo: 2
 líneas de código, 3 clases,… (Contar solo los cambios manuales, no los que haga la herramienta
 automáticamente).
 
-grupos cohesionados pueden constituir clases independientes-Data Clumps-Data that are always used together
+
 
